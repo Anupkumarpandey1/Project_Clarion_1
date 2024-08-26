@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alerts for Deaf with Vibration</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Reset some basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Apply global styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f7f8fc;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+.alert {
+  background-color: #f0f4f8;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 6px solid #3498db;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.alert h2 {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 200px;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+}
+
+button:active {
+  background-color: #1a6b96;
+  transform: translateY(1px);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 40px 0;
+}
+
+form {
+  margin-top: 20px;
+  background-color: #f0f4f8;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 6px solid #2ecc71;
+}
+
+form h2 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+input[type="text"] {
+  padding: 12px;
+  width: calc(100% - 24px);
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #333;
+}
+
+input[type="submit"],
+button {
+  width: 200px;
+  padding: 12px;
+  font-size: 1rem;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+input[type="submit"] {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #27ae60;
+  transform: translateY(-3px);
+}
+
+input[type="submit"]:active {
+  background-color: #1e8c48;
+  transform: translateY(1px);
+}
+
+/* Text styling */
+.alert h2, form h2 {
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+}
+
+button, input[type="submit"] {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .alert h2,
+  form h2 {
+    font-size: 1.1rem;
+  }
+
+  button,
+  input[type="submit"] {
+    font-size: 0.9rem;
+    padding: 10px;
+    width: 100%;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Alerts for Deaf People</h1>
+    
+    <div class="alert">
+      <h2>Dinner is ready</h2>
+      <button onclick="sendAlert('Dinner is ready')">Send Alert</button>
+    </div>
+
+    <div class="alert">
+      <h2>Someone at the door</h2>
+      <button onclick="sendAlert('Someone at the door')">Send Alert</button>
+    </div>
+
+    <div class="alert">
+      <h2>Meeting is coming soon</h2>
+      <button onclick="sendAlert('Meeting is coming soon')">Send Alert</button>
+    </div>
+
+    <hr>
+
+    <h2>Add User for Alerts</h2>
+    <form id="userForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <button type="submit">Add User</button>
+    </form>
+  </div>
+<script>
+    // Function to send alerts
+function sendAlert(message) {
+  alert(message); // Replace with your desired alert mechanism (e.g., push notification)
+}
+
+// Handling form submission to add users
+document.getElementById("userForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const username = document.getElementById("username").value;
+  if (username.trim() !== "") {
+    // Send username to server or store locally for future use
+    console.log(`Added user: ${username}`);
+    alert(`Added user: ${username}`);
+    document.getElementById("username").value = ""; // Clear input after submission
+  }
+});
+
+</script>
+  <script src="script.js"></script>
+</body>
+</html>
